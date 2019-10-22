@@ -7,7 +7,7 @@ import fr.istic.WeekendProjectTpTAA.model.jwtModel.JwtRequest;
 import fr.istic.WeekendProjectTpTAA.model.jwtModel.JwtResponse;
 import fr.istic.WeekendProjectTpTAA.repository.UserRepository;
 import fr.istic.WeekendProjectTpTAA.service.JwtUserDetailsService;
-//import fr.istic.WeekendProjectTpTAA.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.*;
@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@Api(value = "JSON Web Token Management System", description = "Operations pertaining to JWT security  in JWT Management System")
 public class JwtAuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -28,12 +29,16 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtUserDetailsService userDetailsService;
 
-    /*@Autowired
-    private UserService userService;*/
 
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     *
+     * @param authenticationRequest
+     * @return POST Method for Authentication
+     * @throws Exception
+     */
     @RequestMapping(value = "/api/weekend/authenticate", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest)
         throws Exception{
@@ -47,11 +52,21 @@ public class JwtAuthenticationController {
         return ResponseEntity.ok(new JwtResponse(token));
     }
 
+    /**
+     *
+     * @param userDTO
+     * @return POST Method to register a new user
+     * @throws Exception
+     */
     @RequestMapping(value = "/api/weekend/registerUser", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) throws Exception {
         return ResponseEntity.ok(userDetailsService.save(userDTO));
     }
 
+    /**
+     *
+     * @return the List of Users registered in the DB
+     */
     @RequestMapping(value = "/api/weekend/registerUser", method = RequestMethod.GET)
     public ResponseEntity<List<?>> findAllUsers(){
         return ResponseEntity.ok(userRepository.findAll());
