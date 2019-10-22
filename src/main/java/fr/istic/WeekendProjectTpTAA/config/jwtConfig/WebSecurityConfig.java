@@ -59,7 +59,13 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         //We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 //also don't need to authenticate this particular request
-        .authorizeRequests().antMatchers("/api/weekend/authenticate", "/api/weekend/registerUser").permitAll()
+        .authorizeRequests().antMatchers("/api/weekend/authenticate", "/api/weekend/registerUser",
+                "/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**").permitAll()
                 // all other requests need to be authenticated
         .anyRequest().authenticated().and()
                 // make sure we use stateless session; session won't be used to
@@ -71,7 +77,7 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
-    @Override
+  /*  @Override
     public void configure(WebSecurity webSecurity) throws Exception{
         webSecurity.ignoring().antMatchers("/v2/api-docs",
                 "/configuration/ui",
@@ -79,5 +85,5 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**");
-    }
+    }*/
 }
