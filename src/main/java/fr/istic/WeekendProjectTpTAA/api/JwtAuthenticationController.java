@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @Api(value = "JSON Web Token Management System", description = "Operations pertaining to JWT security  in JWT Management System")
 public class JwtAuthenticationController {
     @Autowired
@@ -61,6 +61,12 @@ public class JwtAuthenticationController {
     @RequestMapping(value = "/api/weekend/registerUser", method = RequestMethod.POST)
     public ResponseEntity<?> saveUser(@RequestBody UserDTO userDTO) throws Exception {
         return ResponseEntity.ok(userDetailsService.save(userDTO));
+    }
+
+    @GetMapping("/hello")
+    public String hellowword(){
+
+        return "hellow word";
     }
 
     /**

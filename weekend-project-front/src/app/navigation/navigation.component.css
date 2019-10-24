@@ -1,0 +1,42 @@
+header {
+  background: rgb(146, 3, 146);
+  border-radius: 30px;
+}
+
+
+.logo {
+  font-weight: bold;
+}
+
+
+nav {
+  justify-self: right;
+  font-weight: bold;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+li {
+  float: left;
+}
+
+
+a {
+  padding: 1em;
+  text-transform: uppercase;
+  font-size:  .8em;
+  display: inline-table;
+}
+
+
+a:hover {
+
+  background: rgb(250, 9, 190);
+
+}

@@ -22,6 +22,7 @@ import javax.validation.Valid;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 //@RequestMapping("/api/weekend") or
 @RequestMapping(path = "/api/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(value = "Ville Management System", description = "Operations pertaining to ville in Ville Management System")
