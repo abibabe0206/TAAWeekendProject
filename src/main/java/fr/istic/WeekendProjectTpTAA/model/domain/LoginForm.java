@@ -1,20 +1,17 @@
-package fr.istic.WeekendProjectTpTAA.model.DTO;
+package fr.istic.WeekendProjectTpTAA.model.domain;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-import lombok.Data;
+public class LoginForm {
 
-import javax.validation.constraints.NotNull;
-
-@Data
-public class UserDTO {
-
-    private long userId;
-
-    @NotNull
+    @NotBlank
+    @Size(min = 6, max = 60)
     private String username;
 
-    @NotNull
-    private  String password;
+    @NotBlank
+    @Size(min = 6, max = 40)
+    private String password;
 
     public String getUsername() {
         return username;

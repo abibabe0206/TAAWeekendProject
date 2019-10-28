@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import io.swagger.annotations.*;
@@ -23,9 +24,11 @@ import javax.validation.Valid;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", maxAge = 3600)
 //@RequestMapping("/api/weekend") or
-@RequestMapping(path = "/api/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/info/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
+@PreAuthorize("hasRole('ADMIN')")
 @Api(value = "Region Management System", description = "Operations pertaining to region in Regions Management System")
 public class RegionApi {
 

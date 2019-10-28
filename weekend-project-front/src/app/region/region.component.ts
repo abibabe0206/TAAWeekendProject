@@ -13,14 +13,15 @@ import { Observable } from 'rxjs';
 export class RegionComponent implements OnInit {
 
    //  regionDetails: Region[];
-  regionDetails: Observable<Region[]>;
+   regionDetails: Observable<Region[]>;
 
   constructor(
     private sharedService: SharedService,
-    private router: Router) { }
+   // private router: Router
+   ) { }
 
   ngOnInit() {
-    this.fetchRegionDetails();
+     this.fetchRegionDetails();
   }
 
   // fetchRegionDetails() {

@@ -1,1 +1,33 @@
-<p>home works!</p>
+<div *ngIf="info.token; else loggedOut">
+  <div *ngIf="authority === 'user'; else other">
+    <strong>Username:</strong> {{info.username}}<br/>
+  </div>
+  <ng-template #other>
+    <h5 class="text-primary">Your Information</h5>
+    <p>
+      <strong>Username:</strong> {{info.username}}<br/>
+      <strong>Roles:</strong> {{info.authorities}}<br />
+      <strong>Token:</strong> {{info.token}}.
+    </p>
+  </ng-template>
+  <button class="btn btn-secondary" (click)="logOut()">Logout</button>
+</div>
+<ng-template #loggedOut>
+  Please login.
+</ng-template>
+
+
+
+<!--<div *ngIf="info.token; else loggedOut">
+  <h5 class="text-primary">Your Information</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+  <button class="btn btn-secondary" (click)="logOut()">Logout</button>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>-->
