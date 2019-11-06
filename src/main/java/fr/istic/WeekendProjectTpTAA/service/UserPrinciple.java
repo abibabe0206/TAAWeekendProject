@@ -3,9 +3,11 @@ package fr.istic.WeekendProjectTpTAA.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import fr.istic.WeekendProjectTpTAA.model.domain.UserPpl;
+import fr.istic.WeekendProjectTpTAA.model.domain.UserProfile;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 
 import java.util.Collection;
 import java.util.List;
@@ -29,10 +31,12 @@ public class UserPrinciple implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
+
     public UserPrinciple(Long id, String name,
                          String username, String email,
                          String password,
-                         Collection<? extends GrantedAuthority> authorities) {
+                         Collection<? extends GrantedAuthority> authorities
+                        ) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -45,6 +49,7 @@ public class UserPrinciple implements UserDetails {
         List<GrantedAuthority> authorities = userPpl.getRoles().stream().map(role ->
                 new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
+
 
         return new UserPrinciple(
                 userPpl.getId(),

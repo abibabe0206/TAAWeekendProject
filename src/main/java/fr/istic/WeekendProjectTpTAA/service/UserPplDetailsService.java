@@ -2,7 +2,9 @@ package fr.istic.WeekendProjectTpTAA.service;
 
 
 import fr.istic.WeekendProjectTpTAA.model.domain.UserPpl;
+import fr.istic.WeekendProjectTpTAA.model.domain.UserProfile;
 import fr.istic.WeekendProjectTpTAA.repository.UserPplRepository;
+import fr.istic.WeekendProjectTpTAA.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,5 +32,6 @@ public class UserPplDetailsService implements UserDetailsService {
         }
         return UserPrinciple.build(userPpl);
     }
+
 
 }

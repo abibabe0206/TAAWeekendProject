@@ -1,0 +1,59 @@
+<div class="row col-sm-6" style="max-width: 350px">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="form-group">
+      <label for="userRegion">Region</label>
+      <input type="text" class="form-control" name="userRegion" [(ngModel)]="form.userRegion" #userRegion="ngModel"
+        required />
+      <div *ngIf="f.submitted && userRegion.invalid">
+        <div *ngIf="userRegion?.errors.required">Your Region is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userDepartment">Department</label>
+      <input type="text" class="form-control" name="userDepartment" [(ngModel)]="form.userDepartment" #userDepartment="ngModel"
+        required />
+      <div *ngIf="f.submitted && userDepartment.invalid">
+        <div *ngIf="userDepartment?.errors.required">Your Department is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userVille">Ville</label>
+      <input type="text" class="form-control" name="userVille" [(ngModel)]="form.userVille" #userVille="ngModel"
+        required />
+      <div *ngIf="f.submitted && userVille.invalid">
+        <div *ngIf="userVille?.errors.required">Your Ville is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userSport">Sport</label>
+      <input type="text" class="form-control" name="userSport" [(ngModel)]="form.userSport" #userSport="ngModel"
+        required />
+      <div *ngIf="f.submitted && userSport.invalid">
+        <div *ngIf="userSport?.errors.required">Your Sport is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userPet">Pet</label>
+      <input type="text" class="form-control" name="userPet" [(ngModel)]="form.userPet" #userPet="ngModel"
+        required />
+      <div *ngIf="f.submitted && userPet.invalid">
+        <div *ngIf="userPet?.errors.required">Your Pet is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="userFood">Food</label>
+      <input type="text" class="form-control" name="userFood" [(ngModel)]="form.userFood" #userFood="ngModel"
+        required />
+      <div *ngIf="f.submitted && userFood.invalid">
+        <div *ngIf="userFood?.errors.required">Your Food is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button style="color: green">Save</button>
+      <div *ngIf="f.submitted && isUserProfileFilledFailed" class="alert alert-danger">
+        Your Profile failed: {{errorMessage}}
+      </div>
+    </div>
+  </form>
+  <hr />
+</div>

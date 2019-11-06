@@ -11,7 +11,7 @@ export class SharedService {
 
   url = 'http://localhost:9002/api/info/weekend';
  // url = 'http://localhost:9002/hello';
- // url = 'http://localhost:9002/api/weekend';
+
 
   constructor(private http: HttpClient) { }
 
@@ -36,17 +36,15 @@ export class SharedService {
     return this.http.get(this.url + '/registerUser');
   }
 
+  // to get the list of a user profile
+  getProfiles(): Observable<any> {
+    return this.http.get(this.url + '/userProfile');
+  }
 
-  // tslint:disable-next-line: ban-types
-  // getRegions() {
-  //   return this.http.get(this.url + '/registerUser');
-  // }
- /* getRegions(): Observable<any> {
-    return this.http.get(this.url + '/registerUser');
-  }*/
-  // getRegions(): Observable<any> {
+  // to get the user profile details for a particaler use.
+  getUserProfile(userName: string) {
+    return this.http.get(`${this.url}/userProfile/${userName}`);
+  }
 
-  //   return this.http.get('http://localhost:9002/hello', {responseType: 'text'});
-  // }
 
 }

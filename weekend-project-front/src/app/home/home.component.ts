@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TokenStorageService } from '../authentication/token-storage.service';
+import { Observable } from 'rxjs';
+import { AuthUserProfile } from '../model/user-profile';
+import { SharedService } from '../services/shared.service';
 
 
 
@@ -11,22 +14,27 @@ import { TokenStorageService } from '../authentication/token-storage.service';
 })
 export class HomeComponent implements OnInit {
 
-  info: any;
+  info: any = {};
   public authority: string;
   private roles: string[];
+  profileDetails: AuthUserProfile;
 
-  constructor(private token: TokenStorageService) { }
+
+  constructor(
+    private token: TokenStorageService,
+    private sharedService: SharedService) { }
 
   ngOnInit() {
     this.details();
     this.test();
+    this.fetchProfileDetials();
   }
 
   details() {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
+      authorities: this.token.getAuthorities(),
     };
   }
 
@@ -48,6 +56,14 @@ export class HomeComponent implements OnInit {
         }
       });
     }
+  }
+
+  fetchProfileDetials() {
+    this.sharedService.getUserProfile(this.info.username)
+    .subscribe((data: AuthUserProfile) => {
+      this.profileDetails = data;
+      console.log('profileDetails', this.profileDetails);
+    });
   }
 
 }

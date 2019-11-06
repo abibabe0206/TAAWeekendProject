@@ -33,8 +33,9 @@ export class TokenStorageService {
   }
 
   public getUsername(): string {
-    return sessionStorage.getItem(USERNAME_KEY);
+    return  sessionStorage.getItem(USERNAME_KEY);
   }
+
 
   public saveAuthorities(authorities: string[]) {
     window.sessionStorage.removeItem(AUTHORITIES_KEY);

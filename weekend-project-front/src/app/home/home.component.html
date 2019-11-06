@@ -1,6 +1,23 @@
 <div *ngIf="info.token; else loggedOut">
   <div *ngIf="authority === 'user'; else other">
-    <strong>Username:</strong> {{info.username}}<br/>
+    <div >
+      <div *ngIf="profileDetails == null; else userProfileDetails">
+          <h4>
+            <p>
+              Welcome to your Weekend get alway {{info.username}}. <br/>
+              Please fill up the following form so we can know you better
+            </p>
+          </h4>
+          <app-create-user-profile></app-create-user-profile>
+      </div>
+      <ng-template #userProfileDetails>
+        <h4>
+          <p>
+            Hello {{info.username}}, welcome to your weekend profile.
+          </p>
+        </h4>
+      </ng-template>
+    </div>
   </div>
   <ng-template #other>
     <h5 class="text-primary">Your Information</h5>

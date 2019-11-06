@@ -1,7 +1,6 @@
 package fr.istic.WeekendProjectTpTAA.api;
 
 
-
 import fr.istic.WeekendProjectTpTAA.model.domain.*;
 import fr.istic.WeekendProjectTpTAA.model.jwtModel.ResponseJwt;
 import fr.istic.WeekendProjectTpTAA.model.jwtModel.ResponseMessage;
@@ -72,7 +71,7 @@ public class AuthRestAPIs {
         }
         if (userPplRepository.existsByEmail(signUpRequest.getEmail())){
             return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
-            HttpStatus.BAD_REQUEST);
+                    HttpStatus.BAD_REQUEST);
         }
 
         // Creating User's Account
@@ -93,7 +92,7 @@ public class AuthRestAPIs {
                     roles.add(adminRole);
                           /*  .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                             roles.add(adminRole);*/
-                          break;
+                    break;
                 default:
                     Role userRole = roleRepository.findByName(RoleName.ROLE_USER);
                     if (userRole == null){
