@@ -18,6 +18,8 @@ export class CreateUserProfileComponent implements OnInit {
   isUserProfileFilledFailed = false;
   errorMessage = '';
   username: string;
+  roles: string[] = [];
+  token: string;
 
   private userProfileInfo: AuthUserProfile;
 
@@ -30,7 +32,9 @@ export class CreateUserProfileComponent implements OnInit {
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isUserProfileFilled = true;
+      this.roles = this.tokenStorage.getAuthorities();
       this.username = this.tokenStorage.getUsername();
+      this.token = this.tokenStorage.getToken();
     }
   }
 
@@ -46,20 +50,22 @@ export class CreateUserProfileComponent implements OnInit {
       this.form.userFood
     );
 
-    this.authService.userProfile(this.userProfileInfo).subscribe(
+    this.authService.userProfile(this.username, this.userProfileInfo).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
+        let role: string[] = [];
+        role = this.tokenStorage.getAuthorities();
+        this.tokenStorage.saveToken(this.token);
+        this.tokenStorage.saveUsername(this.username);
+        // this.tokenStorage.saveAuthorities(this.roles);
 
         this.isUserProfileFilledFailed = false;
         this.isUserProfileFilled = true;
+        this.roles = this.tokenStorage.getAuthorities();
         this.username = this.tokenStorage.getUsername();
-       // this.router.navigate(['/user']);
         this.reloadPage();
       },
       error => {
-        console.log('Login Error: ', error);
+        console.log('Profile Creation Error: ', error);
         this.errorMessage = error.error.message;
         this.isUserProfileFilledFailed = true;
       }

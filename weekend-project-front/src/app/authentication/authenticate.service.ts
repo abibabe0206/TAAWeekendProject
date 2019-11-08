@@ -5,7 +5,8 @@ import { AuthLoginInfo } from '../model/login-info';
 import { AuthUserProfile } from '../model/user-profile';
 import { SignUpInfo } from '../model/sigup-info';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, empty } from 'rxjs';
+import { TokenStorageService } from './token-storage.service';
 
 
 
@@ -18,12 +19,14 @@ const httpOptions = {
 })
 export class AuthenticateService {
 
-  private loginUrl = 'http://localhost:9002/api/weekend/signin';
-  private signupUrl = 'http://localhost:9002/api/weekend/signup';
-  private createUserProfile = 'http://localhost:9002/api/info/weekend/userProfile';
+  private loginUrl = '/api/weekend/signin';
+  private signupUrl = '/api/weekend/signup';
+  private createUserProfile = '/api/info/weekend/userProfile';
 
 
-  constructor( private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private tokenStorage: TokenStorageService) { }
 
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
@@ -33,8 +36,17 @@ export class AuthenticateService {
     return this.http.post<string>(this.signupUrl, info, httpOptions);
   }
 
-  userProfile(credentials: AuthUserProfile): Observable<JwtResponse> {
-    return this.http.post<JwtResponse>(this.createUserProfile, credentials, httpOptions);
+  userProfile(username: string, credentials: AuthUserProfile): Observable<JwtResponse> {
+    if (username) {
+      return this.http.post<JwtResponse>(`${this.createUserProfile}/${username}`, credentials,  /*httpOptions,*/
+    {
+      headers: new HttpHeaders()
+        .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
+    });
+    } else {
+      // tslint:disable-next-line: deprecation
+      return empty();
+    }
   }
 
 }

@@ -40,7 +40,7 @@ public class UserProfile {
     @Size(min = 3, max = 50)
     private String userFood;
 
-
+    //
     @OneToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "USER_ID", nullable = false)
     private UserPpl userProfilePpl;
@@ -49,8 +49,10 @@ public class UserProfile {
         super();
     }
 
-    public UserProfile( String userRegion, String userDepartment,  String userVille,
+
+    public UserProfile( String userRegion, String userDepartment, String userVille,
                        String userSport, String userPet, String userFood) {
+
 
         this.userRegion = userRegion;
         this.userDepartment = userDepartment;
@@ -63,6 +65,7 @@ public class UserProfile {
     public UserProfile( String userRegion, String userDepartment, String userVille,
                        String userSport, String userPet, String userFood,
                        UserPpl userProfilePpl) {
+
 
         this.userRegion = userRegion;
         this.userDepartment = userDepartment;

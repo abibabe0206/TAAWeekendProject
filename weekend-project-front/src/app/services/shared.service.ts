@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, empty } from 'rxjs';
+import { AuthenticateService } from '../authentication/authenticate.service';
+import { TokenStorageService } from '../authentication/token-storage.service';
+import { AuthUserProfile } from '../model/user-profile';
 
 
 
@@ -9,11 +12,13 @@ import { Observable } from 'rxjs';
 })
 export class SharedService {
 
-  url = 'http://localhost:9002/api/info/weekend';
+  url = '/api/info/weekend';
  // url = 'http://localhost:9002/hello';
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private tokenStorage: TokenStorageService) { }
 
 
   // to get a user info
@@ -42,8 +47,16 @@ export class SharedService {
   }
 
   // to get the user profile details for a particaler use.
-  getUserProfile(userName: string) {
-    return this.http.get(`${this.url}/userProfile/${userName}`);
+  getUserProfile(userName: string): Observable<AuthUserProfile> {
+    if (userName) {
+      return this.http.get<AuthUserProfile>(`${this.url}/userProfile/${userName}`, {
+        headers: new HttpHeaders()
+          .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
+      });
+    } else {
+      // tslint:disable-next-line: deprecation
+      return empty();
+    }
   }
 
 

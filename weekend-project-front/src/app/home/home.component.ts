@@ -46,15 +46,7 @@ export class HomeComponent implements OnInit {
   test() {
     if (this.token.getToken()) {
       this.roles = this.token.getAuthorities();
-      this.roles.every(role => {
-        if (role === 'ROLE_ADMIN') {
-          this.authority = 'admin';
-          return false;
-        } else {
-          this.authority = 'user';
-          return true;
-        }
-      });
+      this.authority = (this.roles.indexOf('ROLE_ADMIN') > -1) ? 'admin' : 'user';
     }
   }
 
@@ -62,7 +54,7 @@ export class HomeComponent implements OnInit {
     this.sharedService.getUserProfile(this.info.username)
     .subscribe((data: AuthUserProfile) => {
       this.profileDetails = data;
-      console.log('profileDetails', this.profileDetails);
+     // console.log('profileDetails', this.profileDetails);
     });
   }
 

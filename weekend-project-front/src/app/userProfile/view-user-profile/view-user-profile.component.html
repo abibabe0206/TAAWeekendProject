@@ -12,7 +12,7 @@
     <th>Pet</th>
     <th>Food</th>
   </tr>
-  <tr>
+  <tr *ngIf="profileDetails">
     <td>{{profileDetails.userRegion}}</td>
     <td>{{profileDetails.userDepartment}}</td>
     <td>{{profileDetails.userVille}}</td>

@@ -1,8 +1,12 @@
 
 
-export class JwtResponse {
+export interface JwtResponse {
   accessToken: string;
-  type: string;
+  tokenType: string;
   username: string;
-  authorities: string[];
+  authorities: Authority[];
+}
+
+export interface Authority {
+  authority: string;
 }
