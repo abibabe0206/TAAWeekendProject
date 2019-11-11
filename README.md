@@ -30,6 +30,10 @@ The first is the **ADMIN ACCESS**, and the second is the **USER ACCESS**.
 
 The **Administrator** has access to all important API in the application, while a user has access to only necessary APIs.
 
+## Project Diagram
+The diagram below shows the over view of how the application works.  
+![Application Image](weekendDiagram.png)
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
