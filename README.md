@@ -2,11 +2,11 @@
 
 # Descriptions
  * This project is a small application used for traveling.  
- The project is made of Four parts:  
+ The project is made of **Four parts**:  
  * The Back end section ([Java -Spring Boot, and JAP](https://www.javainuse.com/spring/boot-jwt-mysql)).
  * The Front end section ([Angular 8](https://angular.io)).
  * The database in phpAdmin running on [Docker](https://blog.thenets.org/how-to-install-mysql-and-phpmyadmin-with-docker/).
- * The Swagger section [Swagger](http://localhost:9002/swagger-ui.html#/), used in viewing all the application API. This can only be seen one the application is running.
+ * The Swagger section [Swagger](http://localhost:9002/swagger-ui.html#/), used in viewing all the application API. This can only be seen once the application is running.
 
 ## Installation
 
