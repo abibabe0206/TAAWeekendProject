@@ -35,15 +35,18 @@ The diagram below shows the over view of how the application works.
 ![Application Image](weekendDiagram.png)
 
 
+## Help Guides on Spring boot, JPA, REST APIs and MySQL
+[HELP.md](HELP.md).  
+
+
+## TREE OF THE WHOLE PROJECT
+[PROJECT_TREE.md](backendList.md).  
+
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 
-Thank you so much for reading! ☺
-
-[HELP.md](HELP.md)
-
-## TREE OF THE WHOLE PROJECT
-[PROJECT_TREE.md](backendList.md)
+**_Thank you so much for reading! ☺_**
