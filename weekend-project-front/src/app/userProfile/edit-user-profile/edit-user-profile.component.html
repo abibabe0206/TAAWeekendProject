@@ -1,5 +1,6 @@
 <div>
     <!-- Form starts  [formGroup]="registrationForm" -->
+    <p>Profile Update</p>
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="group-gap">
         <div class="d-block my-3">
@@ -52,7 +53,7 @@
           <button routerLink="/viewUserProfile" routerLinkActive="router-link-active" style="margin-left: 20px; color: red" class="btn btn-info">BACK</button>
 
           <button type="submit" style="color: green">Submit</button>
-          <div *ngIf="f.submitted && isUserProfileFilledFailed" class="alert alert-danger">
+          <div *ngIf="f.submitted && isUserProfileUpdatedFailed" class="alert alert-danger">
               Your Profile failed: {{errorMessage}}
           </div>
         </div>

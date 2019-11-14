@@ -21,8 +21,8 @@ export class EditUserProfileComponent implements OnInit {
   form: any = {};
   id: string;
   profileDetails: AuthUserProfile;
-  isUserProfileFilled = false;
-  isUserProfileFilledFailed = false;
+  isUserProfileUpdated = false;
+  isUserProfileUpdatedFailed = false;
   errorMessage = '';
   username: string;
   roles: string[] = [];
@@ -46,7 +46,7 @@ export class EditUserProfileComponent implements OnInit {
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
-      this.isUserProfileFilled = true;
+      this.isUserProfileUpdated = true;
       this.roles = this.tokenStorage.getAuthorities();
       this.username = this.tokenStorage.getUsername();
       this.token = this.tokenStorage.getToken();
@@ -106,8 +106,8 @@ export class EditUserProfileComponent implements OnInit {
         this.tokenStorage.saveToken(this.token);
         this.tokenStorage.saveUsername(this.username);
 
-        this.isUserProfileFilledFailed = false;
-        this.isUserProfileFilled = true;
+        this.isUserProfileUpdatedFailed = false;
+        this.isUserProfileUpdated = true;
         this.roles = this.tokenStorage.getAuthorities();
         this.username = this.tokenStorage.getUsername();
         // this.reloadPage();
@@ -116,7 +116,7 @@ export class EditUserProfileComponent implements OnInit {
       error => {
         console.log('Profile Update Error: ', error);
         this.errorMessage = error.error.message;
-        this.isUserProfileFilledFailed = true;
+        this.isUserProfileUpdatedFailed = true;
       }
     );
     console.log('profileDetails', this.profileDetails);
