@@ -29,7 +29,7 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*")
 //@RequestMapping("/api/weekend") or
 @RequestMapping(path = "/api/info/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
-@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 @Api(value = "Department Management System", description = "Operations pertaining to department in Departments Management System")
     public class DepartmentApi {
 
@@ -44,9 +44,9 @@ import javax.validation.Valid;
                 this.departmentMapper = departmentMapper;
             }
 
-    /**
+             /**
              *
-             * @return the list of departments
+             * @return the this.url + '/ville');list of departments
              */
             @GetMapping(path="/department")
             public ResponseEntity<List<DepartmentDTO>> findAll(){

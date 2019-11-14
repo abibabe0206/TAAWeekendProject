@@ -23,7 +23,7 @@ import java.util.Map;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/api/info/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
-@PreAuthorize("hasRole('USER')")
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 @Api(value = "UserProfile Management System", description = "Operations pertaining to a user's profile in the application")
 public class UserProfileApi {
 

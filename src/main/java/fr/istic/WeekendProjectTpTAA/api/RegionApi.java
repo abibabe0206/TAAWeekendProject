@@ -28,7 +28,7 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*", maxAge = 3600)
 //@RequestMapping("/api/weekend") or
 @RequestMapping(path = "/api/info/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
-@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 @Api(value = "Region Management System", description = "Operations pertaining to region in Regions Management System")
 public class RegionApi {
 

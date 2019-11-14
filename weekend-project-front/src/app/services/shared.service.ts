@@ -36,6 +36,21 @@ export class SharedService {
     return this.http.get(this.url + '/region');
   }
 
+   // to get list of all departments
+   getDepartments() {
+    return this.http.get(this.url + '/department');
+  }
+
+   // to get list of all villes
+   getVilles() {
+    return this.http.get(this.url + '/ville');
+  }
+
+   // to get list of all sports
+   getSports() {
+    return this.http.get(this.url + '/sport');
+  }
+
   // to get list of all registered Users
   getRegisteredUsers(): Observable<any> {
     return this.http.get(this.url + '/registerUser');

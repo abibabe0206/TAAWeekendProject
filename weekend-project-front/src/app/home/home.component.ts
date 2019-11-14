@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TokenStorageService } from '../authentication/token-storage.service';
-import { Observable } from 'rxjs';
 import { AuthUserProfile } from '../model/user-profile';
 import { SharedService } from '../services/shared.service';
 
@@ -18,6 +17,7 @@ export class HomeComponent implements OnInit {
   public authority: string;
   private roles: string[];
   profileDetails: AuthUserProfile;
+
 
 
   constructor(
@@ -57,5 +57,6 @@ export class HomeComponent implements OnInit {
      // console.log('profileDetails', this.profileDetails);
     });
   }
+
 
 }

@@ -4,7 +4,7 @@
       <div *ngIf="profileDetails == null; else userProfileDetails">
           <h4>
             <p>
-              Welcome to your Weekend get alway {{info.username}}. <br/>
+              Welcome to your Weekend get alway <b style="color: blue">{{info.username}}</b>. <br/>
               Please fill up the following form so we can know you better
             </p>
           </h4>
@@ -13,7 +13,7 @@
       <ng-template #userProfileDetails>
         <h4>
           <p>
-            Hello {{info.username}}, welcome to your weekend profile.
+            Hello <b style="color: blue">{{info.username}}</b>, welcome to your weekend profile.
           </p>
         </h4>
       </ng-template>
