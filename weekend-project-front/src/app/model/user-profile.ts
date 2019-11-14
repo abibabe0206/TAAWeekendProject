@@ -1,6 +1,7 @@
 
 
 export class AuthUserProfile {
+  id: string;
   userRegion: string;
   userDepartment: string;
   userVille: string;

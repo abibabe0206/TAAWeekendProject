@@ -30,11 +30,12 @@ The first is the **ADMIN ACCESS**, and the second is the **USER ACCESS**.
 
 The **Administrator** has access to all important API in the application, while a user has access to only necessary APIs.  
 
-THe standard **[CRUD](https://dzone.com/articles/build-a-simple-crud-app-using-spring-boot-mysql-an)** method was done in this application. that is :  
+The standard **[CRUD](https://dzone.com/articles/build-a-simple-crud-app-using-spring-boot-mysql-an)** method was done in this application. that is :  
 * C = Creat (POST)
 * R = Read (GET)
 * U = UpDate (PUT)
-* D = Delete (DELETE).
+* D = Delete (DELETE).  
+
 
 
 

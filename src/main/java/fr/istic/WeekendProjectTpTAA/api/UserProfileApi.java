@@ -30,40 +30,13 @@ public class UserProfileApi {
     @Autowired
     UserProfileRepository userProfileRepository;
 
-
-   /*@PostMapping(path = "/userProfile", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<?> profile(@Valid @RequestBody UserProfile userProfile) {
-
-
-        // Creating User's Profile Account
-        UserProfile userProfile1 = new UserProfile(userProfile.getUserRegion(), userProfile.getUserDepartment(),
-                userProfile.getUserVille(), userProfile.getUserSport(), userProfile.getUserPet(), userProfile.getUserFood());
-
-       userProfileRepository.save(userProfile1);
-
-
-        return new ResponseEntity<>(new ResponseMessage("User's Profile registered successfully!"), HttpStatus.OK);
-    }*/
-
-    @GetMapping("/userProfile/id/{id}")
+    @GetMapping("/userProfileId/{id}")
     public UserProfile getUserProfileById(@PathVariable("id") Long id)
     {
         UserProfile userProfile = userProfileRepository.findById(id).get();
 
         return userProfile;
     }
-
-
-   @PostMapping(path = "/userProfile/{username}", consumes = "application/json", produces = "application/json")
-   public UserProfile createProfile(@PathVariable(value = "username") String username,
-                                    @RequestBody UserProfile userProfile){
-       UserPpl userPpl = userProfileRepository.getUser(username);
-       userProfile.setUserProfilePpl(userPpl);
-
-       userProfileRepository.save(userProfile);
-
-       return getUserProfileById(userProfile.getId());
-   }
 
     @GetMapping(value = "/userProfile")
     public ResponseEntity<List<?>> findAllUsersProfile(){
@@ -72,19 +45,31 @@ public class UserProfileApi {
 
 
     @GetMapping(path="/userProfile/{userName}")
-    public ResponseEntity<UserProfile> findByUserName(@PathVariable(value = "userName") String userName) throws ResourceNotFoundException {
+    public ResponseEntity<UserProfile> findByUserName(@PathVariable(value = "userName") String userName) {
 
         UserProfile uProfile = userProfileRepository.findByUserName(userName);
-                //.orElseThrow(() -> new ResourceNotFoundException("UserProfile not found for this id :: " + userId));
         return ResponseEntity.ok().body(uProfile);
     }
 
 
-    @PutMapping("/userProfile/{id}")
-    public ResponseEntity<UserProfile> updateProfile(@PathVariable(value = "id") Long id,
+    @PostMapping(path = "/userProfile/{username}", consumes = "application/json", produces = "application/json")
+    public UserProfile createProfile(@PathVariable(value = "username") String username,
+                                     @RequestBody UserProfile userProfile){
+        UserPpl userPpl = userProfileRepository.getUser(username);
+        userProfile.setUserProfilePpl(userPpl);
+
+        userProfileRepository.save(userProfile);
+
+        return getUserProfileById(userProfile.getId());
+    }
+
+
+    @PutMapping(path ="/userProfile/{profileId}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable(value = "profileId") Long profileId,
                                                    @Valid @RequestBody UserProfile profileDetails) throws ResourceNotFoundException {
-        UserProfile uProfile = userProfileRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("UserProfile not found for this id :: " + id));
+
+        UserProfile uProfile = userProfileRepository.findById(profileId)
+                .orElseThrow(() -> new ResourceNotFoundException("UserProfile not found for this id :: " + profileId));
 
 
         uProfile.setUserRegion(profileDetails.getUserRegion());

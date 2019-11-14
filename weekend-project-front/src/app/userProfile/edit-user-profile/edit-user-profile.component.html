@@ -1,1 +1,61 @@
-<p>edit-user-profile works!</p>
+<div>
+    <!-- Form starts  [formGroup]="registrationForm" -->
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="group-gap">
+        <div class="d-block my-3">
+
+          <div class="mb-3">
+            <label for="userRegion">Region</label>
+            <select class="custom-select" (change)="onValueChanged($event)" name="userRegion" [(ngModel)]="form.userRegion" #userRegion="ngModel" required>
+              <option>{{form.userRegion}}</option>
+              <option value="">Choose your Region</option>
+              <option *ngFor="let region of regionDetails" [ngValue]="region">{{region.regionName}}</option>
+            </select>
+          </div>
+          <div>
+            <label for="userDepartment">Department</label>
+            <select class="custom-select" (change)="onValueChanged($event)" name="userDepartment" [(ngModel)]="form.userDepartment" #userDepartment="ngModel"
+            required>
+              <option>{{form.userDepartment}}</option>
+              <option value="">Choose your Department</option>
+              <option *ngFor="let dep of departmentDetails" [ngValue]="dep">{{dep.departmentName}}</option>
+            </select>
+          </div>
+            <label for="userVille">Ville</label>
+            <select class="custom-select" (change)="onValueChanged($event)"  name="userVille" [(ngModel)]="form.userVille" #userVille="ngModel"
+            required>
+              <option>{{form.userVille}}</option>
+              <option [ngValue]="">Choose your Ville</option>
+              <option *ngFor="let v of villeDetails" [ngValue]="v">{{v.villeName}}</option>
+            </select>
+          <div>
+            <label for="userSport">Sport</label>
+            <select class="custom-select" (change)="onValueChanged($event)" name="userSport" [(ngModel)]="form.userSport" #userSport="ngModel"
+            required >
+             <option>{{form.userSport}}</option>
+              <option [ngValue]="">Choose your Sport</option>
+              <option *ngFor="let sp of sportDetails" [ngValue]="sp">{{sp.sportName}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+              <label for="userPet">Pet</label>
+              <input pInputText type="text" name="userPet" [(ngModel)]="form.userPet" #userPet="ngModel"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="userFood">Food</label>
+            <input pInputText type="text" name="userFood" [(ngModel)]="form.userFood" #userFood="ngModel"
+            required>
+          </div>
+          <!-- Submit Button -->
+
+          <button routerLink="/viewUserProfile" routerLinkActive="router-link-active" style="margin-left: 20px; color: red" class="btn btn-info">BACK</button>
+
+          <button type="submit" style="color: green">Submit</button>
+          <div *ngIf="f.submitted && isUserProfileFilledFailed" class="alert alert-danger">
+              Your Profile failed: {{errorMessage}}
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

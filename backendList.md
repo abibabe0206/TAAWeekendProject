@@ -1,29 +1,35 @@
 - __WeekendProjectTpTAA__
   - [HELP.md](WeekendProjectTpTAA/HELP.md)
   - [README.md](WeekendProjectTpTAA/README.md)
-  - [WeekendProjectTpTAA.iml](WeekendProjectTpTAA/WeekendProjectTpTAA.iml)
   - [backendList.md](WeekendProjectTpTAA/backendList.md)
   - [hs_err_pid24129.log](WeekendProjectTpTAA/hs_err_pid24129.log)
+  - [WeekendProjectTpTAA.iml](WeekendProjectTpTAA/WeekendProjectTpTAA.iml)
   - [mvnw](WeekendProjectTpTAA/mvnw)
   - [mvnw.cmd](WeekendProjectTpTAA/mvnw.cmd)
   - [node_modules](WeekendProjectTpTAA/node_modules)
   - [package-lock.json](WeekendProjectTpTAA/package-lock.json)
   - [pom.xml](WeekendProjectTpTAA/pom.xml)
   - __src__
+    - __test__
+      - __java__
+        - __fr__
+          - __istic__
+            - __WeekendProjectTpTAA__
+              - [WeekendProjectTpTaaApplicationTests.java](WeekendProjectTpTAA/src/test/java/fr/istic/WeekendProjectTpTAA/WeekendProjectTpTaaApplicationTests.java)
     - __main__
       - __java__
         - __fr__
           - __istic__
             - __WeekendProjectTpTAA__
-              - [WeekendProjectTpTaaApplication.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/WeekendProjectTpTaaApplication.java)
               - __api__
                 - [AuthRestAPIs.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/AuthRestAPIs.java)
                 - [ConnectionRestAPIs.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/ConnectionRestAPIs.java)
                 - [DepartmentApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/DepartmentApi.java)
                 - [RegionApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/RegionApi.java)
-                - [UserProfileApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/UserProfileApi.java)
                 - [SportApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/SportApi.java)
+                - [UserProfileApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/UserProfileApi.java)
                 - [VilleApi.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/api/VilleApi.java)
+              - [WeekendProjectTpTaaApplication.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/WeekendProjectTpTaaApplication.java)
               - __config__
                 - [Swagger2Config.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/config/Swagger2Config.java)
                 - __userConfig__
@@ -33,8 +39,8 @@
                   - [WebSecurityConfig.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/config/userConfig/WebSecurityConfig.java)
               - __exception__
                 - [ErrorDetails.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/exception/ErrorDetails.java)
-                - [ResourceNotFoundException.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/exception/ResourceNotFoundException.java)
                 - [GlobalExceptionHandler.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/exception/GlobalExceptionHandler.java)
+                - [ResourceNotFoundException.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/exception/ResourceNotFoundException.java)
               - __mappers__
                 - [DepartmentMapper.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/mappers/DepartmentMapper.java)
                 - [IEntityMapper.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/mappers/IEntityMapper.java)
@@ -43,8 +49,8 @@
                 - [VilleMapper.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/mappers/VilleMapper.java)
               - __model__
                 - __DTO__
-                  - [RegionDTO.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/DTO/RegionDTO.java)
                   - [DepartmentDTO.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/DTO/DepartmentDTO.java)
+                  - [RegionDTO.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/DTO/RegionDTO.java)
                   - [SportDTO.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/DTO/SportDTO.java)
                   - [VilleDTO.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/DTO/VilleDTO.java)
                 - __domain__
@@ -55,17 +61,17 @@
                   - [RoleName.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/RoleName.java)
                   - [SignUpForm.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/SignUpForm.java)
                   - [Sport.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/Sport.java)
-                  - [UserPpl.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/UserPpl.java)
                   - [UserProfile.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/UserProfile.java)
                   - [Ville.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/Ville.java)
+                  - [UserPpl.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/domain/UserPpl.java)
                 - __jwtModel__
                   - [ResponseJwt.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/jwtModel/ResponseJwt.java)
                   - [ResponseMessage.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/model/jwtModel/ResponseMessage.java)
               - __repository__
                 - [DepartmentRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/DepartmentRepository.java)
                 - [RegionRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/RegionRepository.java)
-                - [SportRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/SportRepository.java)
                 - [RoleRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/RoleRepository.java)
+                - [SportRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/SportRepository.java)
                 - [UserPplRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/UserPplRepository.java)
                 - [UserProfileRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/UserProfileRepository.java)
                 - [VilleRepository.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/repository/VilleRepository.java)
@@ -73,20 +79,14 @@
                 - [DService.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/DService.java)
                 - [RService.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/RService.java)
                 - [SService.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/SService.java)
-                - [UserPrinciple.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/UserPrinciple.java)
                 - [UserPplDetailsService.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/UserPplDetailsService.java)
+                - [UserPrinciple.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/UserPrinciple.java)
                 - [VService.java](WeekendProjectTpTAA/src/main/java/fr/istic/WeekendProjectTpTAA/service/VService.java)
       - __resources__
         - [application.properties](WeekendProjectTpTAA/src/main/resources/application.properties)
         - __static__
         - __templates__
       - __webapp__
-    - __test__
-      - __java__
-        - __fr__
-          - __istic__
-            - __WeekendProjectTpTAA__
-              - [WeekendProjectTpTaaApplicationTests.java](WeekendProjectTpTAA/src/test/java/fr/istic/WeekendProjectTpTAA/WeekendProjectTpTaaApplicationTests.java)
   - __target__
     - [WeekendProjectTpTAA-0.0.1-SNAPSHOT.jar](WeekendProjectTpTAA/target/WeekendProjectTpTAA-0.0.1-SNAPSHOT.jar)
     - [WeekendProjectTpTAA-0.0.1-SNAPSHOT.jar.original](WeekendProjectTpTAA/target/WeekendProjectTpTAA-0.0.1-SNAPSHOT.jar.original)
@@ -111,6 +111,10 @@
                 - [JwtAuthTokenFilter.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/config/userConfig/JwtAuthTokenFilter.class)
                 - [JwtProvider.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/config/userConfig/JwtProvider.class)
                 - [WebSecurityConfig.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/config/userConfig/WebSecurityConfig.class)
+            - __exception__
+              - [ErrorDetails.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/ErrorDetails.class)
+              - [GlobalExceptionHandler.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/GlobalExceptionHandler.class)
+              - [ResourceNotFoundException.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/ResourceNotFoundException.class)
             - __mappers__
               - [DepartmentMapper.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/mappers/DepartmentMapper.class)
               - [DepartmentMapperImpl.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/mappers/DepartmentMapperImpl.class)
@@ -121,10 +125,6 @@
               - [SportMapperImpl.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/mappers/SportMapperImpl.class)
               - [VilleMapper.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/mappers/VilleMapper.class)
               - [VilleMapperImpl.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/mappers/VilleMapperImpl.class)
-            - __exception__
-              - [ErrorDetails.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/ErrorDetails.class)
-              - [GlobalExceptionHandler.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/GlobalExceptionHandler.class)
-              - [ResourceNotFoundException.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/exception/ResourceNotFoundException.class)
             - __model__
               - __DTO__
                 - [DepartmentDTO.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/DTO/DepartmentDTO.class)
@@ -134,8 +134,8 @@
               - __domain__
                 - [Department.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/Department.class)
                 - [LoginForm.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/LoginForm.class)
-                - [Role.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/Role.class)
                 - [Region.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/Region.class)
+                - [Role.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/Role.class)
                 - [RoleName.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/RoleName.class)
                 - [SignUpForm.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/SignUpForm.class)
                 - [Sport.class](WeekendProjectTpTAA/target/classes/fr/istic/WeekendProjectTpTAA/model/domain/Sport.class)
@@ -182,8 +182,8 @@
             - [inputFiles.lst](WeekendProjectTpTAA/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst)
         - __testCompile__
           - __default-testCompile__
-            - [createdFiles.lst](WeekendProjectTpTAA/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst)
             - [inputFiles.lst](WeekendProjectTpTAA/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst)
+            - [createdFiles.lst](WeekendProjectTpTAA/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst)
     - __surefire-reports__
       - [TEST-fr.istic.WeekendProjectTpTAA.WeekendProjectTpTaaApplicationTests.xml](WeekendProjectTpTAA/target/surefire-reports/TEST-fr.istic.WeekendProjectTpTAA.WeekendProjectTpTaaApplicationTests.xml)
       - [fr.istic.WeekendProjectTpTAA.WeekendProjectTpTaaApplicationTests.txt](WeekendProjectTpTAA/target/surefire-reports/fr.istic.WeekendProjectTpTAA.WeekendProjectTpTaaApplicationTests.txt)

@@ -49,4 +49,17 @@ export class AuthenticateService {
     }
   }
 
+  updateUserProfile(id: string, credentials: AuthUserProfile): Observable<JwtResponse> {
+    if (id) {
+      return this.http.put<JwtResponse>(`${this.createUserProfile}/${id}`, credentials,  /*httpOptions,*/
+    {
+      headers: new HttpHeaders()
+        .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
+    });
+    } else {
+      // tslint:disable-next-line: deprecation
+      return empty();
+    }
+  }
+
 }

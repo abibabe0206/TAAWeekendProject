@@ -75,4 +75,17 @@ export class SharedService {
   }
 
 
+  // get profile by id
+  getUserProfileById(id: string): Observable<AuthUserProfile> {
+    if (id) {
+      return this.http.get<AuthUserProfile>(`${this.url}/userProfileId/${id}`, {
+        headers: new HttpHeaders()
+          .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
+      });
+    } else {
+      // tslint:disable-next-line: deprecation
+      return empty();
+    }
+  }
+
 }

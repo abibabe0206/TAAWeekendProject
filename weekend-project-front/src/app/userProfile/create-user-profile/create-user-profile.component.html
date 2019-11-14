@@ -7,7 +7,7 @@
         <div class="mb-3">
           <label for="userRegion">Region</label>
           <select class="custom-select" (change)="onValueChanged($event)" name="userRegion" [(ngModel)]="form.userRegion" #userRegion="ngModel" required>
-            <option value="">Choose your Region</option>
+            <option [ngValue]="">Choose your Region</option>
             <option *ngFor="let region of regionDetails" [ngValue]="region">{{region.regionName}}</option>
           </select>
         </div>
@@ -15,21 +15,21 @@
           <label for="userDepartment">Department</label>
           <select class="custom-select" (change)="onValueChanged($event)" name="userDepartment" [(ngModel)]="form.userDepartment" #userDepartment="ngModel"
           required>
-            <option value="">Choose your Department</option>
+            <option [ngValue]="">Choose your Department</option>
             <option *ngFor="let dep of departmentDetails" [ngValue]="dep">{{dep.departmentName}}</option>
           </select>
         </div>
           <label for="userVille">Ville</label>
           <select class="custom-select" (change)="onValueChanged($event)"  name="userVille" [(ngModel)]="form.userVille" #userVille="ngModel"
           required>
-            <option value="">Choose your Ville</option>
+            <option [ngValue]="">Choose your Ville</option>
             <option *ngFor="let v of villeDetails" [ngValue]="v">{{v.villeName}}</option>
           </select>
         <div>
           <label for="userSport">Sport</label>
           <select class="custom-select" (change)="onValueChanged($event)" name="userSport" [(ngModel)]="form.userSport" #userSport="ngModel"
           required >
-            <option value="">Choose your Sport</option>
+            <option [ngValue]="">Choose your Sport</option>
             <option *ngFor="let sp of sportDetails" [ngValue]="sp">{{sp.sportName}}</option>
           </select>
         </div>

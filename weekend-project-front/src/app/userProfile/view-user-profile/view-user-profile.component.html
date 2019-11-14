@@ -19,5 +19,10 @@
     <td>{{profileDetails.userSport}}</td>
     <td>{{profileDetails.userPet}}</td>
     <td>{{profileDetails.userFood}}</td>
+
+    <td routerLinkActive="router-link-active">
+      <button routerLink="/editUserProfile/{{profileDetails.id}}"
+       style="margin-left: 20px; color: green" class="btn btn-info">EDIT</button>
+    </td>
   </tr>
 </table>
