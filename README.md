@@ -46,7 +46,10 @@ The flow chat diagram below shows the over view of how the application works.
 
 ## Project UML Diagram
 Below is the UML diagram of the project.
-![UML Image](weekendTAAULM.png)
+![UML Image](weekendTAAULM.png)  
+
+
+
 
 
 ## Help Guides on Spring boot, JPA, REST APIs and MySQL
