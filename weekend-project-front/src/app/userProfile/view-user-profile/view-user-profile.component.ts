@@ -17,13 +17,14 @@ export class ViewUserProfileComponent implements OnInit {
 
   constructor(
     private token: TokenStorageService,
-    private sharedService: SharedService) {
-      this.info = {
-        token: this.token.getToken(),
-        username: this.token.getUsername(),
-        authorities: this.token.getAuthorities(),
-      };
-     }
+    private sharedService: SharedService
+  ) {
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities(),
+    };
+  }
 
   ngOnInit() {
     this.fetchProfileDetials();
@@ -34,6 +35,12 @@ export class ViewUserProfileComponent implements OnInit {
     .subscribe((data: AuthUserProfile) => {
       this.profileDetails = data;
      // console.log('profileDetails', this.profileDetails);
+    });
+  }
+
+  deleteProfileDetails(id) {
+    this.sharedService.deleteUserProfileById(id).subscribe(() => {
+      this.fetchProfileDetials();
     });
   }
 

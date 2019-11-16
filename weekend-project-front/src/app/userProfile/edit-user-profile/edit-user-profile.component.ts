@@ -85,8 +85,8 @@ export class EditUserProfileComponent implements OnInit {
 
 
   onSubmit() {
-    console.log('Submitted');
-    console.log('User Updated Profile Form', this.form);
+    // console.log('Submitted');
+    // console.log('User Updated Profile Form', this.form);
 
     this.profileDetails = new AuthUserProfile(
       this.form.userRegion.regionName,
@@ -97,7 +97,7 @@ export class EditUserProfileComponent implements OnInit {
       this.form.userFood
     );
 
-    console.log('Form', this.form);
+    // console.log('Form', this.form);
 
     this.authService.updateUserProfile(this.id, this.profileDetails).subscribe(
       data => {
@@ -111,7 +111,7 @@ export class EditUserProfileComponent implements OnInit {
         this.roles = this.tokenStorage.getAuthorities();
         this.username = this.tokenStorage.getUsername();
         // this.reloadPage();
-        this.router.navigate(['/viewUserProfile']);
+        this.router.navigate(['/user']);
       },
       error => {
         console.log('Profile Update Error: ', error);
@@ -119,7 +119,7 @@ export class EditUserProfileComponent implements OnInit {
         this.isUserProfileUpdatedFailed = true;
       }
     );
-    console.log('profileDetails', this.profileDetails);
+    // console.log('profileDetails', this.profileDetails);
   }
 
   reloadPage() {

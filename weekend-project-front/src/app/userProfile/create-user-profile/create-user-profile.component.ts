@@ -71,8 +71,8 @@ export class CreateUserProfileComponent implements OnInit {
 
 
   onSubmit() {
-    console.log('Submitted');
-    console.log('UserProfile Form', this.form);
+    // console.log('Submitted');
+    // console.log('UserProfile Form', this.form);
 
     this.userProfileInfo = new AuthUserProfile(
       this.form.userRegion.regionName,
@@ -83,7 +83,7 @@ export class CreateUserProfileComponent implements OnInit {
       this.form.userFood
     );
 
-    console.log('Form', this.form);
+    // console.log('Form', this.form);
 
     this.authService.userProfile(this.username, this.userProfileInfo).subscribe(
       data => {
@@ -104,7 +104,7 @@ export class CreateUserProfileComponent implements OnInit {
         this.isUserProfileFilledFailed = true;
       }
     );
-    console.log('userProfileInfo', this.userProfileInfo);
+    // console.log('userProfileInfo', this.userProfileInfo);
   }
 
   reloadPage() {

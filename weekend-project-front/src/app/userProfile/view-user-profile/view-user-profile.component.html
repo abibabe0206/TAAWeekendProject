@@ -24,5 +24,9 @@
       <button routerLink="/editUserProfile/{{profileDetails.id}}"
        style="margin-left: 20px; color: green" class="btn btn-info">EDIT</button>
     </td>
+    <td>
+      <button (click)="deleteProfileDetails(profileDetails.id)"
+       style="margin-left: 20px; color: red" class="btn btn-info">DELETE</button>
+    </td>
   </tr>
 </table>

@@ -15,7 +15,6 @@ export class SharedService {
   url = '/api/info/weekend';
  // url = 'http://localhost:9002/hello';
 
-
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorageService) { }
@@ -36,18 +35,18 @@ export class SharedService {
     return this.http.get(this.url + '/region');
   }
 
-   // to get list of all departments
-   getDepartments() {
+  // to get list of all departments
+  getDepartments() {
     return this.http.get(this.url + '/department');
   }
 
-   // to get list of all villes
-   getVilles() {
+  // to get list of all villes
+  getVilles() {
     return this.http.get(this.url + '/ville');
   }
 
-   // to get list of all sports
-   getSports() {
+  // to get list of all sports
+  getSports() {
     return this.http.get(this.url + '/sport');
   }
 
@@ -79,6 +78,19 @@ export class SharedService {
   getUserProfileById(id: string): Observable<AuthUserProfile> {
     if (id) {
       return this.http.get<AuthUserProfile>(`${this.url}/userProfileId/${id}`, {
+        headers: new HttpHeaders()
+          .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
+      });
+    } else {
+      // tslint:disable-next-line: deprecation
+      return empty();
+    }
+  }
+
+  // deleting profile by id
+  deleteUserProfileById(id: string): Observable<AuthUserProfile> {
+    if (id) {
+      return this.http.delete<AuthUserProfile>(`${this.url}/userProfile/${id}`, {
         headers: new HttpHeaders()
           .set('Authorization', 'Bearer ' + this.tokenStorage.getToken())
       });

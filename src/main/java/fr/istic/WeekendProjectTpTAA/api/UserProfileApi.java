@@ -4,16 +4,13 @@ package fr.istic.WeekendProjectTpTAA.api;
 import fr.istic.WeekendProjectTpTAA.exception.ResourceNotFoundException;
 import fr.istic.WeekendProjectTpTAA.model.domain.UserPpl;
 import fr.istic.WeekendProjectTpTAA.model.domain.UserProfile;
-import fr.istic.WeekendProjectTpTAA.model.jwtModel.ResponseMessage;
 import fr.istic.WeekendProjectTpTAA.repository.UserProfileRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import sun.rmi.runtime.Log;
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -31,7 +28,7 @@ public class UserProfileApi {
     UserProfileRepository userProfileRepository;
 
     @GetMapping("/userProfileId/{id}")
-    public UserProfile getUserProfileById(@PathVariable("id") Long id)
+    public UserProfile getUserProfileById(@PathVariable("id") int id)
     {
         UserProfile userProfile = userProfileRepository.findById(id).get();
 
@@ -39,7 +36,7 @@ public class UserProfileApi {
     }
 
     @GetMapping(value = "/userProfile")
-    public ResponseEntity<List<?>> findAllUsersProfile(){
+    public ResponseEntity<List<UserProfile>> findAllUsersProfile(){
         return ResponseEntity.ok(userProfileRepository.findAll());
     }
 
@@ -65,7 +62,7 @@ public class UserProfileApi {
 
 
     @PutMapping(path ="/userProfile/{profileId}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<UserProfile> updateProfile(@PathVariable(value = "profileId") Long profileId,
+    public ResponseEntity<UserProfile> updateProfile(@PathVariable(value = "profileId") int profileId,
                                                    @Valid @RequestBody UserProfile profileDetails) throws ResourceNotFoundException {
 
         UserProfile uProfile = userProfileRepository.findById(profileId)
@@ -82,7 +79,7 @@ public class UserProfileApi {
         return ResponseEntity.ok(updatedProfile);
     }
 
-    @DeleteMapping("/userProfile/{id}")
+   /* @DeleteMapping("/userProfile/{id}")
     public Map<String, Boolean> deleteProfile(@PathVariable(value = "id") Long id)
             throws ResourceNotFoundException {
         UserProfile userPro = userProfileRepository.findById(id)
@@ -92,7 +89,15 @@ public class UserProfileApi {
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
-    }
+    }*/
+
+   @DeleteMapping("/userProfile/{id}")
+    public Map<String, Boolean> deleteProfile(@PathVariable(value = "id") int id) {
+       userProfileRepository.deleteByProfilesId(id);
+       Map<String, Boolean> response = new HashMap<>();
+       response.put("deleted", Boolean.TRUE);
+       return response;
+   }
 
 
 }

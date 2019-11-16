@@ -40,8 +40,13 @@ The standard **[CRUD](https://dzone.com/articles/build-a-simple-crud-app-using-s
 
 
 ## Project Diagram
-The diagram below shows the over view of how the application works.  
-![Application Image](weekendDiagram.png)
+The flow chat diagram below shows the over view of how the application works.  
+![Application Image](weekendDiagram.png)  
+
+
+## Project UML Diagram
+Below is the UML diagram of the project.
+![UML Image](weekendTAAULM.png)
 
 
 ## Help Guides on Spring boot, JPA, REST APIs and MySQL

@@ -1,9 +1,6 @@
 package fr.istic.WeekendProjectTpTAA.model.domain;
 
 
-import fr.istic.WeekendProjectTpTAA.service.UserPrinciple;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -13,7 +10,7 @@ import javax.validation.constraints.Size;
 public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @NotBlank
     @Size(min = 3, max = 50)
@@ -76,11 +73,11 @@ public class UserProfile {
         this.userProfilePpl = userProfilePpl;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
