@@ -8,6 +8,5 @@ import fr.istic.WeekendProjectTpTAA.model.domain.Ville;
 
 @Repository
 public interface VilleRepository extends JpaRepository<Ville, Long> {
-   // public List<Ville> findAllVilleByDepartmentId(Long departmentId);
 
 }

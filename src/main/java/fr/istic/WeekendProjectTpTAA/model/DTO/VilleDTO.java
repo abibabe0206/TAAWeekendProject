@@ -24,13 +24,6 @@ public class VilleDTO {
     @NotNull
     private List<SportDTO> sportDTOS = new ArrayList<>();
 
-  /**  public VilleDTO(){}
-    public VilleDTO(long villeId, @NotNull String villeName, long departmentId, long regionId) {
-        this.villeId = villeId;
-        this.villeName = villeName;
-        this.departmentId = departmentId;
-        this.regionId = regionId;
-    }**/
 
     public long getVilleId() {
         return villeId;
@@ -63,13 +56,6 @@ public class VilleDTO {
     public void setVilleRegion(RegionDTO villeRegion) {
         this.villeRegion = villeRegion;
     }
-    /*public long getRegionId() {
-        return regionId;
-    }
-
-    public void setRegionId(long regionId) {
-        this.regionId = regionId;
-    }*/
 
     public List<SportDTO> getSportDTOS() {
         return sportDTOS;

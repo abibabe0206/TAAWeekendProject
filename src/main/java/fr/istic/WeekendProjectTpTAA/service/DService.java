@@ -51,7 +51,6 @@ public class DService {
 
         Department createdDepartment = departmentRepository.save(department);
         List<Ville> villes = new ArrayList<>();
-        //Region region = new Region();
 
         departmentDTO.getVilleDTOs().forEach( villeDTO -> {
            Ville ville = villeMapper.toDomain(villeDTO);
@@ -60,12 +59,8 @@ public class DService {
         });
 
         departmentDTO.getDepRegion();
-        //region = regionMapper.toDomain(region);
-       // region.setDepartments((List<Department>) createdDepartment);
-       // region.setDepartments((List<Department>) departmentMapper.toDomain(departmentDTO));
 
         createdDepartment.setVilles(villes);
-       // createdDepartment.setRegion(region);
         villeRepository.saveAll(villes);
 
         return departmentMapper.toDto(createdDepartment);

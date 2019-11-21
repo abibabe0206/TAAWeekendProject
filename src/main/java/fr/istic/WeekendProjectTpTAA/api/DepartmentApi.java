@@ -26,7 +26,7 @@ import javax.validation.Valid;
 
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 //@RequestMapping("/api/weekend") or
 @RequestMapping(path = "/api/info/weekend", produces = MediaType.APPLICATION_JSON_VALUE)
 @PreAuthorize("hasRole('ADMIN') or hasRole('USER')")

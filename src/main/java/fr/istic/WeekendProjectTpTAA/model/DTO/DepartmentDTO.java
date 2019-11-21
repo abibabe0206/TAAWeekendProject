@@ -22,17 +22,9 @@ public class DepartmentDTO {
      @NotNull
     private List<VilleDTO> villeDTOs = new ArrayList<>();
 
-    //@NotNull
-     private RegionDTO depRegion;
 
-    // public DepartmentDTO(){}
+    private RegionDTO depRegion;
 
-   /** public DepartmentDTO(long departmentId, @NotNull String departmentName, @NotNull List<VilleDTO> villeDTOs, long regionId) {
-        this.departmentId = departmentId;
-        this.departmentName = departmentName;
-        this.villeDTOs = villeDTOs;
-        this.regionId = regionId;
-    }*/
 
     public long getDepartmentId() {
         return departmentId;
@@ -66,11 +58,4 @@ public class DepartmentDTO {
         this.depRegion = depRegion;
     }
 
-    /*  public long getRegionId() {
-        return regionId;
-    }
-
-    public void setRegionId(long regionId) {
-        this.regionId = regionId;
-    }*/
 }

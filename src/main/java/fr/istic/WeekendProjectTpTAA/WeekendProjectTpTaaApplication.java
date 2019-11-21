@@ -11,16 +11,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-//@EnableSwagger2
-/*@ComponentScan({"fr.istic.WeekendProjectTpTAA.model"})
-@EntityScan({"fr.istic.WeekendProjectTpTAA"})
-@EnableJpaRepositories({"fr.istic.WeekendProjectTpTAA.repository"})*/
 @EnableScheduling
 public class WeekendProjectTpTaaApplication {
-
-	/*@Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-		return builder.sources(WeekendProjectTpTaaApplication.class);
-	}*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(WeekendProjectTpTaaApplication.class, args);

@@ -18,10 +18,6 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    /*@GenericGenerator(
-            name = "native",
-            strategy = "native"
-    )*/
     @Column(name = "DEPARTMENT_ID")
     @ApiModelProperty(notes = "The database generated department ID")
     private long departmentId;
@@ -74,7 +70,6 @@ public class Department {
     }
 
 
-
     public Region getRegion() {
         return region;
     }
@@ -82,7 +77,6 @@ public class Department {
     public void setRegion(Region region) {
         this.region = region;
     }
-
 
 
     public List<Ville> getVilles() {

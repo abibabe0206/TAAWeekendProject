@@ -10,7 +10,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {
-    //@Query("select distinct r from Role r inner join r.roleName r where r.roleName in :name")
+
     Role findByName(@Param("roleName") RoleName roleName);
-   // Optional<Role> findByName(RoleName roleName);
 }
