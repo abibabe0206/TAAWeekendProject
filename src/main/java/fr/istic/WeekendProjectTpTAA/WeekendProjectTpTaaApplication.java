@@ -7,6 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
@@ -14,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /*@ComponentScan({"fr.istic.WeekendProjectTpTAA.model"})
 @EntityScan({"fr.istic.WeekendProjectTpTAA"})
 @EnableJpaRepositories({"fr.istic.WeekendProjectTpTAA.repository"})*/
+@EnableScheduling
 public class WeekendProjectTpTaaApplication {
 
 	/*@Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

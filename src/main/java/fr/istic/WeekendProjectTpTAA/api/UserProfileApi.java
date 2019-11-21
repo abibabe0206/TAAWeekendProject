@@ -5,6 +5,7 @@ import fr.istic.WeekendProjectTpTAA.exception.ResourceNotFoundException;
 import fr.istic.WeekendProjectTpTAA.model.domain.UserPpl;
 import fr.istic.WeekendProjectTpTAA.model.domain.UserProfile;
 import fr.istic.WeekendProjectTpTAA.repository.UserProfileRepository;
+import fr.istic.WeekendProjectTpTAA.service.MailService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +28,9 @@ public class UserProfileApi {
 
     @Autowired
     UserProfileRepository userProfileRepository;
+
+    @Autowired
+    private MailService notificationService;
 
     @GetMapping("/userProfileId/{id}")
     public UserProfile getUserProfileById(@PathVariable("id") int id)
@@ -51,11 +56,28 @@ public class UserProfileApi {
 
     @PostMapping(path = "/userProfile/{username}", consumes = "application/json", produces = "application/json")
     public UserProfile createProfile(@PathVariable(value = "username") String username,
-                                     @RequestBody UserProfile userProfile){
+                                     @RequestBody UserProfile userProfile) throws MessagingException {
         UserPpl userPpl = userProfileRepository.getUser(username);
         userProfile.setUserProfilePpl(userPpl);
 
         userProfileRepository.save(userProfile);
+
+        String receiversMail;
+        receiversMail = userPpl.getEmail();
+
+        String mailBody;
+        mailBody = "Hello " + userPpl.getName() +
+                " Find below the details for your weekend trip : "
+                + " Your Region " + userProfile.getUserRegion() + " "
+                + " Your Department " + userProfile.getUserDepartment() + " "
+                + " Your ville " + userProfile.getUserVille() + " "
+                + " Your sport " + userProfile.getUserSport() + " "
+                + " Your pet " + userProfile.getUserPet() + " "
+                + " Your food " + userProfile.getUserFood();
+
+
+        notificationService.send(receiversMail, "Weekend Get Away Details", mailBody);
+        //notificationService.send("abibabe0206@gmail.com", "Test mail from Spring", "mailBody");
 
         return getUserProfileById(userProfile.getId());
     }

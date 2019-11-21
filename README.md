@@ -30,6 +30,9 @@ The first is the **ADMIN ACCESS**, and the second is the **USER ACCESS**.
 
 The **Administrator** has access to all important API in the application, while a user has access to only necessary APIs.  
 
+The applications can also send email to the users email address with the user of **SMTP GMAIL**.  
+  
+
 The standard **[CRUD](https://dzone.com/articles/build-a-simple-crud-app-using-spring-boot-mysql-an)** method was done in this application. that is :  
 * C = Creat (POST)
 * R = Read (GET)
@@ -47,8 +50,6 @@ The flow chat diagram below shows the over view of how the application works.
 ## Project UML Diagram
 Below is the UML diagram of the project.
 ![UML Image](weekendTAAULM.png)  
-
-
 
 
 
